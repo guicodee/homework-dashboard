@@ -1,5 +1,5 @@
 import { Layers } from "lucide-react";
-import { Button } from "./ui/button";
+import { CreateHomework } from "./CreateHomework";
 
 export function Header() {
 
@@ -10,7 +10,7 @@ export function Header() {
           <Layers className="h-6 w-6" />
           <h1 className="text-2xl font-bold tracking-tight">Homework Tracker</h1>
         </div>
-        <Button className="rounded-md">Nova Tarefa</Button>
+        <CreateHomework />
       </div>
     </header>
   )
