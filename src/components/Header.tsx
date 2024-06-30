@@ -1,5 +1,5 @@
 import { Layers } from "lucide-react";
-import { CreateHomework } from "./CreateHomework";
+import { CreateHomework } from "@/components/CreateHomework";
 
 export function Header() {
 
