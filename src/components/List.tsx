@@ -1,7 +1,10 @@
 import { Calendar, CircleCheck } from "lucide-react";
 import { HomeworkItem } from "./HomeworkItem";
+import { useContext } from "react";
+import { HomeworkContext } from "@/context/Homework";
 
 export function List() {
+  const { homeworks } = useContext(HomeworkContext);
 
   return (
     <main className="flex-1 flex-col gap-4 p-8 pt-6">
@@ -28,16 +31,20 @@ export function List() {
             </div>
           </div>
           <div className="col-span-1">
-          {Array.from({ length: 4 }).map((_, i) => {
-            return (
-              <HomeworkItem 
-                key={i}
-                title="Titulo da descrição "
-                description="Descrição de cada tarefa"
-                status="Médio"
-              />
-            );
-          })}
+          {homeworks.length === 0 ? (
+            <h1>Sem tarefas pendentes</h1>
+          ) : (
+            homeworks.map((homework) => {
+              return (
+                <HomeworkItem 
+                  key={homework.id}
+                  title={homework.title}
+                  description={homework.description}
+                  priority={homework.priority}
+                />
+              );
+            })
+          )}
           </div>
         </div>
       </div>

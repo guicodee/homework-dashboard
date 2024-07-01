@@ -2,8 +2,8 @@ export type IHomework = {
   id: string
   title: string
   description: string
-  status: "baixo" | "medio" | "alto"
+  priority: "low" | "medium" | "high"
   done: boolean
 }
 
-export type Priority = "baixo" | "medio" | "alto"
+export type Priority = "low" | "medium" | "high"

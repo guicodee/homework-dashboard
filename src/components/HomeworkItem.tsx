@@ -5,10 +5,10 @@ import { Label } from "@/components/ui/label";
 interface HomeworkItemProps {
   title: string
   description: string
-  status: string
+  priority: "low" | "medium" | "high"
 }
 
-export function HomeworkItem({title, description, status}: HomeworkItemProps) {
+export function HomeworkItem({title, description, priority}: HomeworkItemProps) {
 
   return (
     <div className="border mb-8 p-4 rounded-md">
@@ -19,7 +19,7 @@ export function HomeworkItem({title, description, status}: HomeworkItemProps) {
         </div>
         <div className="flex flex-col">
           <Label className="text-sm font-semibold text-zinc-300 mb-2">Status</Label>
-          <span className="font-medium text-sm text-yellow-700 bg-yellow-400 px-2 rounded-full">{status}</span>
+          <span className="font-medium text-sm text-yellow-700 bg-yellow-400 px-2 rounded-full">{priority}</span>
         </div>
       </div>
       <div className="flex items-center gap-4">
