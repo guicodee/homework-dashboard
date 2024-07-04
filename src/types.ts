@@ -2,7 +2,7 @@ export type IHomework = {
   id: string
   title: string
   description: string
-  priority: "low" | "medium" | "high"
+  priority: Priority
   done: boolean
 }
 
