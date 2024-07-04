@@ -19,7 +19,7 @@ export function HomeworkItem({title, description, priority}: HomeworkItemProps) 
         </div>
         <div className="flex flex-col">
           <Label className="text-sm font-semibold text-zinc-300 mb-2">Status</Label>
-          <span className="font-medium text-sm text-yellow-700 bg-yellow-400 px-2 rounded-full">{priority}</span>
+          <span className={`font-medium text-sm px-3 rounded-full ${priority === 'low' && 'bg-green-700 text-green-200'} ${priority === 'medium' && 'bg-yellow-700 text-yellow-200'} ${priority === 'high' && 'bg-red-700 text-red-100'}`}>{priority}</span>
         </div>
       </div>
       <div className="flex items-center gap-4">
