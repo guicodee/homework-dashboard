@@ -22,6 +22,7 @@ module.exports = {
         'custom': '500px 1fr',
       },
       colors: {
+        tertiary: "#85858d",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
