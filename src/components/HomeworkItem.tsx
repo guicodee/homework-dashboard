@@ -1,14 +1,31 @@
 import { Check, Trash } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { useContext } from "react";
+import { HomeworkContext } from "@/context/Homework";
+import { useToast } from "@/components/ui/use-toast";
 
 interface HomeworkItemProps {
+  id: string
   title: string
   description: string
   priority: "low" | "medium" | "high"
 }
 
-export function HomeworkItem({title, description, priority}: HomeworkItemProps) {
+export function HomeworkItem({id, title, description, priority}: HomeworkItemProps) {
+  const { deletedHomeworks } = useContext(HomeworkContext);
+  const { toast } = useToast();
+
+  function handleDeleteHomework() {
+    setTimeout(() => {
+      deletedHomeworks(id);
+      toast({
+        variant: "success",
+        description: 'Tarefa foi excluída com sucesso.',
+        duration: 2000,
+      });
+    }, 2000);
+  }
 
   return (
     <div className="border mb-8 p-4 rounded-md">
@@ -23,7 +40,7 @@ export function HomeworkItem({title, description, priority}: HomeworkItemProps) 
         </div>
       </div>
       <div className="flex items-center gap-4">
-        <Button variant={"destructive"}>
+        <Button onClick={handleDeleteHomework} variant={"destructive"}>
           <Trash className="w-5 h-5" />
         </Button>
         <Button className="flex items-center gap-3 font-semibold" variant={"success"}>
