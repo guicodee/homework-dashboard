@@ -9,6 +9,7 @@ type HomeworkContextType = {
   newHomework(homework: IHomework): void;
   filteredByPriority(priority: Priority): void;
   deletedHomeworks(id: string): void;
+  toggleHomeworkIsDone(id: string): void;
   resetFilter(): void;
 };
 
@@ -28,7 +29,7 @@ export function HomeworkProvider({ children }: { children: ReactNode }) {
   }
 
   function filteredByPriority(priority: Priority) {
-    const filtered = homeworks.filter((homework) => homework.priority === priority);
+    const filtered = homeworks.filter((homework) => homework.priority === priority && homework.done === false);
     setFilteredHomeworks(filtered);
     setCurrentPriority(priority);
   }
@@ -38,13 +39,30 @@ export function HomeworkProvider({ children }: { children: ReactNode }) {
     setHomeworks(deletedHomework);
   }
 
+  function toggleHomeworkIsDone(id: string) {
+    const homeworkIsExist = homeworks.find((homework) => homework.id === id);
+    if ( !homeworkIsExist ) {
+      return;
+    }
+
+    const newHomeworks = homeworks.map((homework) => {
+      if ( homework.id === id ) {
+        homework.done = !homework.done
+      }
+
+      return homework;
+    });
+
+    setHomeworks(newHomeworks);
+  }
+
   function resetFilter() {
     setFilteredHomeworks(homeworks);
     setCurrentPriority(null);
   }
 
   return (
-    <HomeworkContext.Provider value={{ newHomework, homeworks, filteredHomeworks, resetFilter, filteredByPriority, currentPriority, deletedHomeworks }}>
+    <HomeworkContext.Provider value={{ newHomework, homeworks, filteredHomeworks, resetFilter, filteredByPriority, currentPriority, deletedHomeworks, toggleHomeworkIsDone }}>
       {children}
     </HomeworkContext.Provider>
   )

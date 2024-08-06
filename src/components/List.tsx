@@ -1,4 +1,4 @@
-import { Calendar, CircleCheck } from "lucide-react";
+import { Calendar } from "lucide-react";
 import { HomeworkItem } from "./HomeworkItem";
 import { useContext } from "react";
 import { HomeworkContext } from "@/context/Homework";
@@ -23,13 +23,6 @@ export function List() {
                 <span className="text-2xl font-semibold">{filteredHomeworks.length}</span>
               </div>
               <Calendar />
-            </div>
-            <div className="p-2 flex items-center justify-between">
-              <div>
-                <h3 className="text-lg opacity-90 text-zinc-200 mb-3">Tarefa Pendentes</h3>
-                <span className="text-2xl font-semibold">3</span>
-              </div>
-              <CircleCheck />
             </div>
           </div>
           <div className="col-span-1">
@@ -56,6 +49,7 @@ export function List() {
               filteredHomeworks.map((homework) => (
                 <HomeworkItem 
                   id={homework.id}
+                  done={homework.done}
                   key={homework.id}
                   title={homework.title}
                   description={homework.description}
