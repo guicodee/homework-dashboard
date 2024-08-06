@@ -1,7 +1,8 @@
 import { Calendar, CircleCheck } from "lucide-react";
 import { HomeworkItem } from "./HomeworkItem";
 import { useContext } from "react";
-import { HomeworkContext, Priority } from "@/context/Homework";
+import { HomeworkContext } from "@/context/Homework";
+import { Priority } from "@/types/Priority";
 import { Separator } from "./ui/separator";
 
 export function List() {
@@ -54,6 +55,7 @@ export function List() {
             ) : (
               filteredHomeworks.map((homework) => (
                 <HomeworkItem 
+                  id={homework.id}
                   key={homework.id}
                   title={homework.title}
                   description={homework.description}
