@@ -10,7 +10,7 @@ import { HomeworkContext } from "@/context/Homework";
 import { useForm, Controller } from "react-hook-form";
 import * as z from 'zod';
 import { zodResolver } from "@hookform/resolvers/zod";
-import { IHomework } from "@/types";
+import { IHomework } from "@/types/IHomework";
 import { v4 as uuidv4 } from 'uuid';
 import { useToast } from "@/components/ui/use-toast";
 
@@ -71,7 +71,7 @@ export function CreateHomework() {
     <div>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button>Nova Tarefa</Button>
+          <Button size={"sm"}>Nova Tarefa</Button>
         </DialogTrigger>
 
         <DialogContent>
