@@ -127,7 +127,7 @@ export function CreateHomework() {
                       value={field.value} 
                       onValueChange={field.onChange}
                     >
-                      <SelectTrigger className="w-[220px] flex items-center py-2 px-3 border rounded-md border-input">
+                      <SelectTrigger className="w-[220px] max-sm:w-full flex items-center py-2 px-3 border rounded-md border-input">
                         <ArrowDown size={18} />
                         <SelectValue placeholder="Selecione a prioridade" />
                       </SelectTrigger>
@@ -145,9 +145,9 @@ export function CreateHomework() {
               </div>
             </div>
             
-            <DialogFooter className="sm:flex gap-4">
+            <DialogFooter className="sm:flex gap-1 max-sm:gap-3">
               <DialogClose asChild>
-                <Button type="button" variant={"outline"}>Cancelar</Button>
+                <Button type="button" variant={"destructive"}>Cancelar</Button>
               </DialogClose>
               <Button
                 disabled={isSubmitting} 
